@@ -1,6 +1,7 @@
 package com.practice.collection.controller;
 
 import com.practice.collection.service.CollectionInterfaceType;
+import com.practice.collection.service.CollectionImplementationType;
 import com.practice.collection.service.TestRunnerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,7 @@ public class TestRunnerController {
         ModelAndView model = new ModelAndView();
         model.setViewName("index");
         model.addObject("coreInterfaces", CollectionInterfaceType.values());
+        model.addObject("collectionImplementations", CollectionImplementationType.values());
         return model;
     }
 }
