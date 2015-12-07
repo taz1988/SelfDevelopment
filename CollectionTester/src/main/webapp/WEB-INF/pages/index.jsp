@@ -39,6 +39,11 @@
                                     </c:forEach>
                                 </ul>
                             </div>
+                            <div class="col-md-3 dropdown">
+                                <button aria-expanded="true" aria-haspopup="true" class="btn btn-primary" disabled id="run-test" type="button">
+                                    Run test
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </body>

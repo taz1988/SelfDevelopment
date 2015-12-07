@@ -9,5 +9,6 @@ $(document).ready(function(){
   $(".implementations-dropdown li a").click(function(){
     var coreInterface = $(this).text();
     $(".implementations-button").html(coreInterface + '<span class="caret"></span>');
+    $("#run-test").prop("disabled", false);
   });
 });
