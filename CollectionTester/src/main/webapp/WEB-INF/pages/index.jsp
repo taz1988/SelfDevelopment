@@ -40,6 +40,20 @@
                                 </ul>
                             </div>
                             <div class="col-md-3 dropdown">
+                                <button aria-expanded="true" aria-haspopup="true" class="btn btn-default dropdown-toggle test-cases-button" data-toggle="dropdown" disabled id="test-cases" type="button">
+                                    Implementation
+                                    <span class="caret"></span>
+                                </button>
+                                <ul aria-labelledby="test-cases" class="dropdown-menu test-cases-dropdown">
+                                    ${testCases}
+                                    <c:forEach items="${testCases}" var="testCaseEntry">
+                                        <li class="hidden test-cases" data-implementation="${testCaseEntry.key}" data-test-case-id="${testCaseEntry.value}">
+                                            <a href="#">${testCaseEntry.value.getName()}</a>
+                                        </li>
+                                    </c:forEach>
+                                </ul>
+                            </div>
+                            <div class="col-md-3 dropdown">
                                 <button aria-expanded="true" aria-haspopup="true" class="btn btn-primary" disabled id="run-test" type="button">
                                     Run test
                                 </button>

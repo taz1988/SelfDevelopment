@@ -24,6 +24,7 @@
 
     <bean class="com.practice.collection.controller.TestRunnerController">
         <constructor-arg ref="testRunnerService" />
+        <constructor-arg ref="testCases" />
     </bean>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
