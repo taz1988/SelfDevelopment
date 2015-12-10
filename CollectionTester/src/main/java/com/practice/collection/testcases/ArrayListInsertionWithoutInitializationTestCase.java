@@ -41,4 +41,8 @@ public class ArrayListInsertionWithoutInitializationTestCase extends AbstractTes
     public String getName() {
         return "ArrayList 100_000_000 element insertion without any pre initialization.";
     }
+
+    public void setName(String name) {
+
+    }
 }

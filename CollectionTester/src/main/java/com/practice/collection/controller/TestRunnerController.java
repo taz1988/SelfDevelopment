@@ -1,8 +1,16 @@
 package com.practice.collection.controller;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.UUID;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import com.practice.collection.model.TestCaseDisplayModel;
 import com.practice.collection.service.CollectionInterfaceType;
 import com.practice.collection.service.CollectionImplementationType;
 import com.practice.collection.service.TestRunnerService;
@@ -32,14 +40,30 @@ public class TestRunnerController {
         model.setViewName("index");
         model.addObject("coreInterfaces", CollectionInterfaceType.values());
         model.addObject("collectionImplementations", CollectionImplementationType.values());
-        model.addObject("testCases", testCases);
+        model.addObject("testCases", convertTestCases());
         return model;
+    }
+
+    private List<TestCaseDisplayModel> convertTestCases() {
+        List<TestCaseDisplayModel> testCaseDisplayModelList = new ArrayList<>();
+        for (Map.Entry<CollectionImplementationType, List<TestCase>> cases : testCases.entrySet()) {
+            for (TestCase testCase : cases.getValue()) {
+                testCaseDisplayModelList.add(new TestCaseDisplayModel(testCase.getId().toString(), testCase.getName(), cases.getKey().name()));
+            }
+        }
+        return testCaseDisplayModelList;
     }
 
     @RequestMapping(value = "/startTest", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
-    public String renderPage(CollectionImplementationType implementationType, UUID id) {
-        //testRunnerService.
-        return "model";
+    public String renderPage(CollectionImplementationType implementationType, String id, int numberOfRuns) {
+        testRunnerService.start(implementationType, UUID.fromString(id), numberOfRuns);
+        return GSON.toJson(testRunnerService.getStateOfRunningTest());
+    }
+
+    @RequestMapping(value = "/getStatusOfRunningTest", method = RequestMethod.GET, produces = "application/json")
+    @ResponseBody
+    public String renderPage(CollectionImplementationType implementationType, String id, int numberOfRuns) {
+        return GSON.toJson(testRunnerService.getStateOfRunningTest());
     }
 }
