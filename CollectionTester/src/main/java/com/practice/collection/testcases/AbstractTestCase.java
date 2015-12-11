@@ -3,19 +3,25 @@ package com.practice.collection.testcases;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import com.google.common.base.Stopwatch;
 
 public abstract  class AbstractTestCase implements TestCase {
 
     private List<Long> executionTimes = new ArrayList<>();
     protected abstract void init();
-    protected abstract long run();
+    protected abstract void run();
 
     @Override
     public TestResult run(int numberOfRuns) {
         executionTimes.clear();
-        this.init();
         for(int i = 0; i < numberOfRuns; i++) {
-            executionTimes.add(this.run());
+            this.init();
+            Stopwatch stopwatch = Stopwatch.createStarted();
+            this.run();
+            stopwatch.stop();
+            executionTimes.add(stopwatch.elapsed(TimeUnit.MILLISECONDS));
         }
         return new TestResult(generateName(numberOfRuns), Collections.min(executionTimes),
                 Collections.max(executionTimes), numberOfRuns, average(), deviation());

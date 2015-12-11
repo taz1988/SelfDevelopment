@@ -55,7 +55,7 @@
                 <div class="col-md-2 dropdown">
                     <div class="form-group">
                         <label for="numberOfRuns">Number of Runs</label>
-                        <input type="email" class="form-control" id="numberOfRuns" placeholder="Number of runs" value="100000000" />
+                        <input type="email" class="form-control" id="numberOfRuns" placeholder="Number of runs" value="5" />
                     </div>
                 </div>
                 <div class="col-md-1 dropdown">
@@ -68,12 +68,32 @@
                 <div class="col-md-4 dropdown">
                 </div>
                 <div class="col-md-4 dropdown">
-                    <div class="progress hide">
-                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
                             Test Running in progress, please wait...
-                            <span class="sr-only">100% Complete</span>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 dropdown">
+                </div>
+                <div class="col-md-4 dropdown">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                              <td>Name</td>
+                              <td>Number of Runs</td>
+                              <td>Avarage (ms)</td>
+                              <td>Deviation (ms)</td>
+                              <td>Min (ms)</td>
+                              <td>Max (ms)</td>
+                            </tr>
+                        </thead>
+                        <tbody id="testCasesInTable">
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

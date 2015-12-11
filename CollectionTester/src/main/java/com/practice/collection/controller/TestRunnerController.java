@@ -56,14 +56,14 @@ public class TestRunnerController {
 
     @RequestMapping(value = "/startTest", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
-    public String renderPage(CollectionImplementationType implementationType, String id, int numberOfRuns) {
+    public String startTest(CollectionImplementationType implementationType, String id, int numberOfRuns) {
         testRunnerService.start(implementationType, UUID.fromString(id), numberOfRuns);
         return GSON.toJson(testRunnerService.getStateOfRunningTest());
     }
 
     @RequestMapping(value = "/getStatusOfRunningTest", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
-    public String renderPage(CollectionImplementationType implementationType, String id, int numberOfRuns) {
+    public String getStateOfRunningTest() {
         return GSON.toJson(testRunnerService.getStateOfRunningTest());
     }
 }

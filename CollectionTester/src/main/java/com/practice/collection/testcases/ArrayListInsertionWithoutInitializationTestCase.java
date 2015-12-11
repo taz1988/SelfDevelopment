@@ -1,12 +1,9 @@
 package com.practice.collection.testcases;
 
-import com.google.common.base.Stopwatch;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
-import java.util.concurrent.TimeUnit;
 
 /**
  * In this test case we populate an arrayList with 100_000_000 random number, without any proper initialization.
@@ -23,13 +20,10 @@ public class ArrayListInsertionWithoutInitializationTestCase extends AbstractTes
     }
 
     @Override
-    protected long run() {
-        Stopwatch stopwatch = Stopwatch.createStarted();
-        for (int i = 0; i < 100_000_000; i++) {
+    protected void run() {
+        for (int i = 0; i < 10_000_000; i++) {
             testList.add(random.nextInt(100_000_000));
         }
-        stopwatch.stop();
-        return stopwatch.elapsed(TimeUnit.MILLISECONDS);
     }
 
     @Override
@@ -39,7 +33,7 @@ public class ArrayListInsertionWithoutInitializationTestCase extends AbstractTes
 
     @Override
     public String getName() {
-        return "ArrayList 100_000_000 element insertion without any pre initialization.";
+        return "ArrayList 10_000_000 element insertion without any pre initialization.";
     }
 
     public void setName(String name) {

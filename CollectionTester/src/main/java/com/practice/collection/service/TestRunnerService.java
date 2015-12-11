@@ -37,8 +37,11 @@ public class TestRunnerService {
 
     private Runnable createRunnable(Optional<TestCase> selectedTestCase, int numberOfRuns) {
         return () -> {
-            completedTestResults.add(selectedTestCase.get().run(numberOfRuns));
-            state = DONE;
+            try {
+                completedTestResults.add(selectedTestCase.get().run(numberOfRuns));
+            } finally {
+                state = DONE;
+            }
         };
     }
 
@@ -53,7 +56,7 @@ public class TestRunnerService {
     public RunningTestResult getStateOfRunningTest() {
         switch (state) {
             case DONE:
-                return new RunningTestResult(completedTestResults.get(completedTestResults.size() - 1), state);
+                return new RunningTestResult(completedTestResults.size() > 0 ? completedTestResults.get(completedTestResults.size() - 1) : null, state);
             default:
             case RUNNING:
                 return new RunningTestResult(null, state);
