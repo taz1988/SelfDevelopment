@@ -20,29 +20,35 @@ function processResponseCameFromTestCaseRunning(response) {
             $("#testCasesInTable").append("<tr><td>" + response.testResult.name + "</td><td>"
              + response.testResult.numberOfRuns + "</td><td>" + response.testResult.average + "</td><td>"
              + response.testResult.deviation + "</td><td>" + response.testResult.min + "</td><td>"
-              + response.testResult.max + "</td></tr>");
+             + response.testResult.max + "</td></tr>");
+            avarageBar.data.labels.push(response.testResult.name);
+            avarageBar.data.series.push([response.testResult.average]);
+            deviationBar.data.labels.push(response.testResult.name);
+            deviationBar.data.series.push([response.testResult.deviation]);
+            avarageBar.update();
+            deviationBar.update();
         }
     }
 }
 
 $(document).ready(function(){
-  $(".core-interfaces-dropdown li a").click(function() {
-    var coreInterface = $(this).text();
+  $(".core-interfaces-dropdown li").click(function() {
+    var coreInterface = $(this).text().trim();
     $(".core-interfaces-button").html(coreInterface + '<span class="caret"></span>');
     $(".implementations").addClass("hidden");
     $("[data-core-interface='" + coreInterface + "']").removeClass("hidden");
     $(".implementations-button").prop("disabled", false);
   });
-  $(".implementations-dropdown li a").click(function() {
-    var implementation = $(this).text();
+  $(".implementations-dropdown li").click(function() {
+    var implementation = $(this).text().trim();
     $(".implementations-button").html(implementation + '<span class="caret"></span>');
     $(".test-cases-button").prop("disabled", false);
     $(".test-cases").addClass("hidden");
     $("[data-implementation='" + implementation + "']").removeClass("hidden");
   });
-  $(".test-cases-dropdown li a").click(function() {
-    selectedTestCase = $(this).parent().data("testCaseId");
-    selectedImplementationType = $(this).parent().data("implementation");
+  $(".test-cases-dropdown li").click(function() {
+    selectedTestCase = $(this).data("testCaseId");
+    selectedImplementationType = $(this).data("implementation");
     $(".test-cases-button").html($(this).text() + '<span class="caret"></span>');
     $("#run-test").prop("disabled", false);
   });
@@ -67,4 +73,7 @@ $(document).ready(function(){
          $("#numberOfRuns").parent().addClass("has-error");
      }
   });
+  $(".implementations-button").prop("disabled", true);
+  $(".test-cases-button").prop("disabled", true);
+  $("#run-test").prop("disabled", true);
 });

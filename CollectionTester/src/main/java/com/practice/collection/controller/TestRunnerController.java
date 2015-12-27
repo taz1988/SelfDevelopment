@@ -41,6 +41,7 @@ public class TestRunnerController {
         model.addObject("coreInterfaces", CollectionInterfaceType.values());
         model.addObject("collectionImplementations", CollectionImplementationType.values());
         model.addObject("testCases", convertTestCases());
+        model.addObject("testResults", testRunnerService.getCompletedTestResults());
         return model;
     }
 

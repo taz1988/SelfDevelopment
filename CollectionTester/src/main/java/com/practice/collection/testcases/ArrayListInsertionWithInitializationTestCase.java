@@ -33,7 +33,7 @@ public class ArrayListInsertionWithInitializationTestCase extends AbstractTestCa
 
     @Override
     public String getName() {
-        return "ArrayList 10_000_000 element insertion with pre initialization.";
+        return "ArrayList 10_000_000 element insertion with pre initialization";
     }
 
     public void setName(String name) {

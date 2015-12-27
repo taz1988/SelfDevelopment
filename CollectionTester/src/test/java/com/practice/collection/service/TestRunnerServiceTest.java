@@ -39,8 +39,8 @@ public class TestRunnerServiceTest {
 
     @Test
     public void testServiceStartTheProperTestCase() {
-        testRunnerService.start(ARRAY_LIST, ID, NUMBER_OF_RUNS);
         when(testCase.run(NUMBER_OF_RUNS)).thenReturn(TEST_RESULT);
+        testRunnerService.start(ARRAY_LIST, ID, NUMBER_OF_RUNS);
 
         verify(testCase).run(NUMBER_OF_RUNS);
         assertTrue(testRunnerService.getCompletedTestResults().contains(TEST_RESULT));
