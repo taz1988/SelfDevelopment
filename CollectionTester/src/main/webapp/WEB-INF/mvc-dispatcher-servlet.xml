@@ -14,6 +14,7 @@
         <entry key="ARRAY_LIST">
             <list>
                 <bean class="com.practice.collection.testcases.ArrayListInsertionWithoutInitializationTestCase" />
+                <bean class="com.practice.collection.testcases.ArrayListInsertionWithInitializationTestCase" />
             </list>
         </entry>
     </util:map>

@@ -6,17 +6,17 @@ import java.util.Random;
 import java.util.UUID;
 
 /**
- * In this test case we populate an arrayList with 10_000_000 random number, without any proper initialization.
+ * In this test case we populate an arrayList with 10_000_000 random number, with proper init.
  */
-public class ArrayListInsertionWithoutInitializationTestCase extends AbstractTestCase {
+public class ArrayListInsertionWithInitializationTestCase extends AbstractTestCase {
 
-    private static final UUID ID = UUID.fromString("8a2d46a4-c05d-4a11-b9fe-117f95c4656d");
+    private static final UUID ID = UUID.fromString("7b4fe190-4f0a-40ac-af44-db8929544ebc");
     private Random random = new Random();
     private List<Integer> testList;
 
     @Override
     protected void init() {
-        testList = new ArrayList<>();
+        testList = new ArrayList<>(10_000_000);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class ArrayListInsertionWithoutInitializationTestCase extends AbstractTes
 
     @Override
     public String getName() {
-        return "ArrayList 10_000_000 element insertion without any pre initialization.";
+        return "ArrayList 10_000_000 element insertion with pre initialization.";
     }
 
     public void setName(String name) {
