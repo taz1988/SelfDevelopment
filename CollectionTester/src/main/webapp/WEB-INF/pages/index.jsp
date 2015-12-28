@@ -25,7 +25,7 @@
             </c:forEach>
                 $(document).ready(function() {
                     avarageBar = new Chartist.Bar(".avarage-time", dataForAvarageBar);
-                    deviationBar = new Chartist.Bar(".deviation-time", dataForAvarageBar);
+                    deviationBar = new Chartist.Bar(".deviation-time", dataForDeviationBar);
                 });
             }
         </script>
@@ -49,7 +49,7 @@
                 </div>
                 <div class="col-md-2 dropdown">
                     <button aria-expanded="true" aria-haspopup="true" class="btn btn-default dropdown-toggle implementations-button" data-toggle="dropdown" disabled id="implemantation" type="button">
-                        Implementation
+                        Choose an implementation
                         <span class="caret"></span>
                     </button>
                     <ul aria-labelledby="implemantation" class="dropdown-menu implementations-dropdown">
@@ -62,7 +62,7 @@
                 </div>
                 <div class="col-md-4 dropdown">
                     <button aria-expanded="true" aria-haspopup="true" class="btn btn-default dropdown-toggle test-cases-button" data-toggle="dropdown" disabled id="test-cases" type="button">
-                        Implementation
+                        Choose a testCase
                         <span class="caret"></span>
                     </button>
                     <ul aria-labelledby="test-cases" class="dropdown-menu test-cases-dropdown">

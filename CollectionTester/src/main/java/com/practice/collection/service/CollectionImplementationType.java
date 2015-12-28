@@ -2,7 +2,8 @@ package com.practice.collection.service;
 
 public enum CollectionImplementationType {
 
-    ARRAY_LIST(CollectionInterfaceType.LIST);
+    ARRAY_LIST(CollectionInterfaceType.LIST),
+    LINKED_LIST(CollectionInterfaceType.LIST);
 
     private CollectionInterfaceType type;
 

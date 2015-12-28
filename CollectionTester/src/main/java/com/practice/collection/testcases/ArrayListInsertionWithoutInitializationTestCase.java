@@ -2,7 +2,6 @@ package com.practice.collection.testcases;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.UUID;
 
 /**
@@ -10,8 +9,7 @@ import java.util.UUID;
  */
 public class ArrayListInsertionWithoutInitializationTestCase extends AbstractTestCase {
 
-    private static final UUID ID = UUID.fromString("8a2d46a4-c05d-4a11-b9fe-117f95c4656d");
-    private Random random = new Random();
+    private static final UUID ID = UUID.randomUUID();
     private List<Integer> testList;
 
     @Override
@@ -21,8 +19,8 @@ public class ArrayListInsertionWithoutInitializationTestCase extends AbstractTes
 
     @Override
     protected void run() {
-        for (int i = 0; i < 10_000_000; i++) {
-            testList.add(random.nextInt(100_000_000));
+        for (int i = 0; i < NUMBER_OF_ELEMENT; i++) {
+            testList.add(super.generateARandomNumber());
         }
     }
 
@@ -33,7 +31,7 @@ public class ArrayListInsertionWithoutInitializationTestCase extends AbstractTes
 
     @Override
     public String getName() {
-        return "ArrayList 10_000_000 element insertion without any pre initialization";
+        return "ArrayList " + NUMBER_OF_ELEMENT + " element insertion without any pre initialization";
     }
 
     public void setName(String name) {

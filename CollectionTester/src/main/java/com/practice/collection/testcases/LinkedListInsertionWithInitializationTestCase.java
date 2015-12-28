@@ -1,20 +1,22 @@
 package com.practice.collection.testcases;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 /**
- * In this test case we populate an arrayList with 10_000_000 random number, with proper init.
+ * In this test case we populate a linkedlist with 10_000_000 random number, with proper init.
  */
-public class ArrayListInsertionWithInitializationTestCase extends AbstractTestCase {
+public class LinkedListInsertionWithInitializationTestCase extends AbstractTestCase {
 
-    private static final UUID ID = UUID.randomUUID();
+    private static final UUID ID = UUID.fromString("7b4fe190-4f0a-40ac-af44-db8929544abc");
+    private Random random = new Random();
     private List<Integer> testList;
 
     @Override
     protected void init() {
-        testList = new ArrayList<>(NUMBER_OF_ELEMENT);
+        testList = new LinkedList<>();
     }
 
     @Override
@@ -31,7 +33,7 @@ public class ArrayListInsertionWithInitializationTestCase extends AbstractTestCa
 
     @Override
     public String getName() {
-        return "ArrayList " + NUMBER_OF_ELEMENT + " element insertion with pre initialization";
+        return "LinkedList " + NUMBER_OF_ELEMENT + " element insertion with pre initialization";
     }
 
     public void setName(String name) {

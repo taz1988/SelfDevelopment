@@ -38,6 +38,7 @@ $(document).ready(function(){
     $(".implementations").addClass("hidden");
     $("[data-core-interface='" + coreInterface + "']").removeClass("hidden");
     $(".implementations-button").prop("disabled", false);
+    $(".implementations-button").html('Choose an implementation<span class="caret"></span>');
   });
   $(".implementations-dropdown li").click(function() {
     var implementation = $(this).text().trim();
@@ -45,6 +46,7 @@ $(document).ready(function(){
     $(".test-cases-button").prop("disabled", false);
     $(".test-cases").addClass("hidden");
     $("[data-implementation='" + implementation + "']").removeClass("hidden");
+    $(".test-cases-button").html('Choose a testCase<span class="caret"></span>');
   });
   $(".test-cases-dropdown li").click(function() {
     selectedTestCase = $(this).data("testCaseId");

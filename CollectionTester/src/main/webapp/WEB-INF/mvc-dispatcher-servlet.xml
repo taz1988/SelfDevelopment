@@ -15,6 +15,59 @@
             <list>
                 <bean class="com.practice.collection.testcases.ArrayListInsertionWithoutInitializationTestCase" />
                 <bean class="com.practice.collection.testcases.ArrayListInsertionWithInitializationTestCase" />
+                <bean class="com.practice.collection.testcases.ListSortTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.ArrayList" />
+                    </constructor-arg>
+                    <constructor-arg value="ARRAY_LIST" />
+                </bean>
+                <bean class="com.practice.collection.testcases.ListLambdaSortTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.ArrayList" />
+                    </constructor-arg>
+                    <constructor-arg value="ARRAY_LIST" />
+                </bean>
+                <bean class="com.practice.collection.testcases.ListStreamSortTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.ArrayList" />
+                    </constructor-arg>
+                    <constructor-arg value="ARRAY_LIST" />
+                </bean>
+                <bean class="com.practice.collection.testcases.ListStreamParallelSortTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.ArrayList" />
+                    </constructor-arg>
+                    <constructor-arg value="ARRAY_LIST" />
+                </bean>
+            </list>
+        </entry>
+        <entry key="LINKED_LIST">
+            <list>
+                <bean class="com.practice.collection.testcases.LinkedListInsertionTestCase" />
+                <bean class="com.practice.collection.testcases.ListSortTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.LinkedList" />
+                    </constructor-arg>
+                    <constructor-arg value="LINKED_LIST" />
+                </bean>
+                <bean class="com.practice.collection.testcases.ListLambdaSortTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.LinkedList" />
+                    </constructor-arg>
+                    <constructor-arg value="LINKED_LIST" />
+                </bean>
+                <bean class="com.practice.collection.testcases.ListStreamSortTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.LinkedList" />
+                    </constructor-arg>
+                    <constructor-arg value="LINKED_LIST" />
+                </bean>
+                <bean class="com.practice.collection.testcases.ListStreamParallelSortTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.LinkedList" />
+                    </constructor-arg>
+                    <constructor-arg value="LINKED_LIST" />
+                </bean>
             </list>
         </entry>
     </util:map>
