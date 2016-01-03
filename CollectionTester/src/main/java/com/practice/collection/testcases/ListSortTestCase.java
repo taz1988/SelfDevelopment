@@ -1,13 +1,13 @@
 package com.practice.collection.testcases;
 
-import java.util.List;
-import java.util.Collections;
-import java.util.UUID;
 import com.practice.collection.service.CollectionImplementationType;
+
+import java.util.Collections;
+import java.util.List;
 
 public class ListSortTestCase extends AbstractTestCase {
 
-    private UUID id = UUID.randomUUID();
+
     private List<Integer> listToSort;
     private CollectionImplementationType implementationType;
     
@@ -27,11 +27,6 @@ public class ListSortTestCase extends AbstractTestCase {
     @Override
     protected void run() {
         Collections.sort(listToSort);
-    }
-
-    @Override
-    public UUID getId() {
-        return id;
     }
 
     @Override

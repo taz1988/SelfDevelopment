@@ -1,9 +1,6 @@
 package com.practice.collection.testcases;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 import com.google.common.base.Stopwatch;
@@ -11,6 +8,7 @@ import com.google.common.base.Stopwatch;
 public abstract class AbstractTestCase implements TestCase {
 
     public static int NUMBER_OF_ELEMENT = 10_000_000;
+    private UUID id = UUID.randomUUID();
     private List<Long> executionTimes = new ArrayList<>();
     private Random random = new Random();
     protected abstract void init();
@@ -28,6 +26,11 @@ public abstract class AbstractTestCase implements TestCase {
         }
         return new TestResult(generateName(numberOfRuns), Collections.min(executionTimes),
                 Collections.max(executionTimes), numberOfRuns, average(), deviation());
+    }
+
+    @Override
+    public UUID getId() {
+        return id;
     }
  
     protected int generateARandomNumber() {

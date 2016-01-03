@@ -9,7 +9,6 @@ import java.util.UUID;
  */
 public class ArrayListInsertionWithInitializationTestCase extends AbstractTestCase {
 
-    private static final UUID ID = UUID.randomUUID();
     private List<Integer> testList;
 
     @Override
@@ -22,11 +21,6 @@ public class ArrayListInsertionWithInitializationTestCase extends AbstractTestCa
         for (int i = 0; i < NUMBER_OF_ELEMENT; i++) {
             testList.add(super.generateARandomNumber());
         }
-    }
-
-    @Override
-    public UUID getId() {
-        return ID;
     }
 
     @Override
