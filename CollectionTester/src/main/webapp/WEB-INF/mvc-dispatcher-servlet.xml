@@ -15,6 +15,149 @@
             <list>
                 <bean class="com.practice.collection.testcases.ArrayListInsertionWithoutInitializationTestCase" />
                 <bean class="com.practice.collection.testcases.ArrayListInsertionWithInitializationTestCase" />
+                <bean class="com.practice.collection.testcases.ListSortTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.ArrayList" />
+                    </constructor-arg>
+                    <constructor-arg value="ARRAY_LIST" />
+                </bean>
+                <bean class="com.practice.collection.testcases.ListLambdaSortTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.ArrayList" />
+                    </constructor-arg>
+                    <constructor-arg value="ARRAY_LIST" />
+                </bean>
+                <bean class="com.practice.collection.testcases.ListStreamSortTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.ArrayList" />
+                    </constructor-arg>
+                    <constructor-arg value="ARRAY_LIST" />
+                </bean>
+                <bean class="com.practice.collection.testcases.ListStreamParallelSortTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.ArrayList" />
+                    </constructor-arg>
+                    <constructor-arg value="ARRAY_LIST" />
+                </bean>
+                <bean class="com.practice.collection.testcases.IndexOfElementTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.ArrayList" />
+                    </constructor-arg>
+                    <constructor-arg value="ARRAY_LIST" />
+                </bean>
+                <bean class="com.practice.collection.testcases.BinarySearchTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.ArrayList" />
+                    </constructor-arg>
+                    <constructor-arg value="ARRAY_LIST" />
+                </bean>
+            </list>
+        </entry>
+        <entry key="LINKED_LIST">
+            <list>
+                <bean class="com.practice.collection.testcases.LinkedListInsertionTestCase" />
+                <bean class="com.practice.collection.testcases.ListSortTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.LinkedList" />
+                    </constructor-arg>
+                    <constructor-arg value="LINKED_LIST" />
+                </bean>
+                <bean class="com.practice.collection.testcases.ListLambdaSortTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.LinkedList" />
+                    </constructor-arg>
+                    <constructor-arg value="LINKED_LIST" />
+                </bean>
+                <bean class="com.practice.collection.testcases.ListStreamSortTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.LinkedList" />
+                    </constructor-arg>
+                    <constructor-arg value="LINKED_LIST" />
+                </bean>
+                <bean class="com.practice.collection.testcases.ListStreamParallelSortTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.LinkedList" />
+                    </constructor-arg>
+                    <constructor-arg value="LINKED_LIST" />
+                </bean>
+                <bean class="com.practice.collection.testcases.IndexOfElementTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.LinkedList" />
+                    </constructor-arg>
+                    <constructor-arg value="LINKED_LIST" />
+                </bean>
+                <bean class="com.practice.collection.testcases.BinarySearchTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.LinkedList" />
+                    </constructor-arg>
+                    <constructor-arg value="LINKED_LIST" />
+                </bean>
+            </list>
+        </entry>
+        <entry key="HASH_MAP">
+            <list>
+                <bean class="com.practice.collection.testcases.MapInsertionTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.HashMap" />
+                    </constructor-arg>
+                    <constructor-arg value="HASH_MAP" />
+                </bean>
+                <bean class="com.practice.collection.testcases.ContainsKeyTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.HashMap" />
+                    </constructor-arg>
+                    <constructor-arg value="HASH_MAP" />
+                </bean>
+                <bean class="com.practice.collection.testcases.ContainsValueTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.HashMap" />
+                    </constructor-arg>
+                    <constructor-arg value="HASH_MAP" />
+                </bean>
+            </list>
+        </entry>
+        <entry key="LINKED_HASH_MAP">
+            <list>
+                <bean class="com.practice.collection.testcases.MapInsertionTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.LinkedHashMap" />
+                    </constructor-arg>
+                    <constructor-arg value="LINKED_HASH_MAP" />
+                </bean>
+                <bean class="com.practice.collection.testcases.ContainsKeyTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.LinkedHashMap" />
+                    </constructor-arg>
+                    <constructor-arg value="LINKED_HASH_MAP" />
+                </bean>
+                <bean class="com.practice.collection.testcases.ContainsValueTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.LinkedHashMap" />
+                    </constructor-arg>
+                    <constructor-arg value="LINKED_HASH_MAP" />
+                </bean>
+            </list>
+        </entry>
+        <entry key="TREE_MAP">
+            <list>
+                <bean class="com.practice.collection.testcases.MapInsertionTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.TreeMap" />
+                    </constructor-arg>
+                    <constructor-arg value="TREE_MAP" />
+                </bean>
+                <bean class="com.practice.collection.testcases.ContainsKeyTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.TreeMap" />
+                    </constructor-arg>
+                    <constructor-arg value="TREE_MAP" />
+                </bean>
+                <bean class="com.practice.collection.testcases.ContainsValueTestCase">
+                    <constructor-arg>
+                        <bean class="java.util.TreeMap" />
+                    </constructor-arg>
+                    <constructor-arg value="TREE_MAP" />
+                </bean>
             </list>
         </entry>
     </util:map>
