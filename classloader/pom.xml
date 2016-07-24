@@ -11,6 +11,26 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>com.selfdevelopment.control.Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.5.0</version>
@@ -23,7 +43,7 @@
                         <configuration>
                             <mainClass>com.selfdevelopment.encryption.EncryptionService</mainClass>
                             <arguments>
-                                <argument>target/classes/com/selfdevelopment/secret/</argument>
+                                <argument>${project.basedir}\target\classes\com\selfdevelopment\secret\</argument>
                                 <argument>12345678</argument>
                             </arguments>
                         </configuration>
