@@ -43,14 +43,41 @@
                         <configuration>
                             <mainClass>com.selfdevelopment.encryption.EncryptionService</mainClass>
                             <arguments>
-                                <argument>${project.basedir}\target\classes\com\selfdevelopment\secret\</argument>
-                                <argument>12345678</argument>
+                                <argument>${project.basedir}/target/classes/com/selfdevelopment/secret/</argument>
                             </arguments>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.selfdevelopment.control.Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>19.0</version>
+        </dependency>
+    </dependencies>
 </project>

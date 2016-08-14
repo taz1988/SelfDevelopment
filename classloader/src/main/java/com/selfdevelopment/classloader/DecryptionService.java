@@ -1,22 +1,15 @@
 package com.selfdevelopment.classloader;
 
+import com.google.common.io.ByteStreams;
+
+import javax.crypto.*;
+import javax.crypto.spec.DESKeySpec;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.net.URISyntaxException;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
-
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.SecretKey;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.DESKeySpec;
 
 public class DecryptionService {
 
@@ -33,9 +26,8 @@ public class DecryptionService {
             throw new ClassNotFoundException(name);
         }
         try {
-            byte[] data = Files.readAllBytes(Paths.get(classURL.toURI()));
-            return cipher.doFinal(data);
-        } catch (IOException | URISyntaxException | BadPaddingException | IllegalBlockSizeException e) {
+            return cipher.doFinal(ByteStreams.toByteArray(classURL.openStream()));
+        } catch (IOException | BadPaddingException | IllegalBlockSizeException e) {
             e.printStackTrace();
             throw new ClassNotFoundException(name);
         }

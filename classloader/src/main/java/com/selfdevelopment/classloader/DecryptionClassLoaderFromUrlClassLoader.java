@@ -26,8 +26,7 @@ public class DecryptionClassLoaderFromUrlClassLoader extends URLClassLoader {
 
     @Override
     protected Class<?> loadClass(String name, boolean resolve)
-            throws ClassNotFoundException
-    {
+            throws ClassNotFoundException {
         System.out.println("Loading class :" + name);
         if (!name.contains("com.selfdevelopment.secret")) {
             return super.loadClass(name, resolve);
